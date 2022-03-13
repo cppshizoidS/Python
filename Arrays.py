@@ -1,12 +1,13 @@
 # sorting algorithms of array
 def bubblesort(arr):
-    # Swap the elements
-    for iter_num in range(len(arr) - 1, 0, -1):
-        for idx in range(iter_num):
-            if arr[idx] > arr[idx + 1]:
-                temp = arr[idx]
-                arr[idx] = arr[idx + 1]
-                arr[idx + 1] = temp
+        n = len(arr)
+
+        for i in range(n):
+
+            for j in range(0, n - i - 1):
+
+                if arr[j] > arr[j + 1]:
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
 arr = [20, 2, 37, 45, 6, 11, 219, 27]
