@@ -28,7 +28,18 @@ def countingSort(arr, min, max):
 
     return arr
 
+def insertionSort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
 
+        while (j >= 0 and arr[j] > key):
+            arr[j + 1] = arr[j]
+            j = j - 1
+
+        arr[j + 1] = key
+
+def mergeSort(arr):
 
 
 arr = [20, 2, 37, 45, 6, 11, 219, 27]
