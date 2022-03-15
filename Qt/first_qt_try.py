@@ -12,7 +12,7 @@ def quit_window():
 app = QApplication(sys.argv)
 window = QMainWindow()
 window.setGeometry(500, 500, 300, 300)
-window.setWindowTitle("ABOBUS")
+window.setWindowTitle("First Qt")
 
 label = QLabel(window)
 label.setText("PYQt 5 GUI Application")
