@@ -14,7 +14,7 @@ def quit_window():
 app = QApplication(sys.argv)
 window = QMainWindow()
 window.setGeometry(500, 500, 300, 300)
-window.setWindowTitle("CodersLegacy")
+window.setWindowTitle("FirstQt")
 
 label = QLabel(window)
 label.setText("PyQt5 GUI Application")
