@@ -2,7 +2,7 @@ import numpy as np
 
 
 def sigmoid(x):
-    # Сигмоидная функция активации: f(x) = 1 / (1 + e^(-x))
+    # Sigmoid activation Function: f(x) = 1 / (1 + e^(-x))
     return 1 / (1 + np.exp(-x))
 
 
@@ -13,13 +13,13 @@ def deriv_sigmoid(x):
 
 
 def mse_loss(y_true, y_pred):
-    # y_true и y_pred - массивы numpy одинаковой длины.
+    # y_true и y_pred - araays numpy same lenght.
     return ((y_true - y_pred) ** 2).mean()
 
 
 class OurNeuralNetwork:
     def __init__(self):
-        # Веса
+        # Weights
         self.w1 = np.random.normal()
         self.w2 = np.random.normal()
         self.w3 = np.random.normal()
@@ -27,7 +27,7 @@ class OurNeuralNetwork:
         self.w5 = np.random.normal()
         self.w6 = np.random.normal()
 
-        # Пороги
+        # Thresholds
         self.b1 = np.random.normal()
         self.b2 = np.random.normal()
         self.b3 = np.random.normal()
@@ -78,7 +78,7 @@ class OurNeuralNetwork:
                 d_h2_d_w4 = x[1] * deriv_sigmoid(sum_h2)
                 d_h2_d_b2 = deriv_sigmoid(sum_h2)
 
-                # --- Обновляем веса и пороги
+                #  Обновляем веса и пороги
                 # Нейрон h1
                 self.w1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w1
                 self.w2 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w2
