@@ -1,6 +1,7 @@
+import sys
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow
-import sys
 
 
 def display():
