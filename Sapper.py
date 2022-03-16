@@ -1,5 +1,16 @@
 import tkinter as tk
 
+class MyButton(tk.Button):
+
+    def __init__(self, master, x, y, *args, **kwargs):
+        super(MyButton, self).__init__(master, *args, **kwargs)
+        self.x = x
+        self.y = y
+        self.is_mine = False
+
+    def __repr__(self):
+        return f'MyButton{self.x} {self.y}'
+
 
 class Sapper:
     window = tk.Tk()
@@ -11,7 +22,7 @@ class Sapper:
         for i in range(Sapper.ROW):
             temp = []
             for j in range(Sapper.COLUMNS):
-                btn = tk.Button(Sapper.window, width=3, font='Arial 15 bold')
+                btn = MyButton(Sapper.window, x=i, y=j, width=3, font='Arial 15 bold')
                 temp.append(btn)
             self.buttons.append(temp)
 
