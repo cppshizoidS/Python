@@ -101,7 +101,7 @@ class OurNeuralNetwork:
         loss = mse_loss(all_y_trues, y_preds)
         print("Epoch %d loss: %.3f" % (epoch, loss))
 
-# Определим набор данных
+# Набор данных
 data = np.array([
   [-2, -1],  # Алиса
   [25, 6],   # Боб
@@ -115,7 +115,7 @@ all_y_trues = np.array([
   1, # Диана
 ])
 
-# Обучаем нашу нейронную сеть!
+# Обучение
 network = OurNeuralNetwork()
 network.train(data, all_y_trues)
 
