@@ -9,4 +9,4 @@ Tkinter is the folder contain the GUI, Simple Calculator with GUI and Simple Gam
 
 PyGame is the folder with simple animation of flame using PyGame
 
-Qt is the folder with Qt Simple window
+Qt is the folder with Qt Simple window(Using Qt5)
