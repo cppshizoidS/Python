@@ -1,4 +1,4 @@
-rom tkinter import *
+from tkinter import *
 
 import time
 import random
