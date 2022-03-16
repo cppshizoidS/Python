@@ -119,7 +119,7 @@ all_y_trues = np.array([
 network = OurNeuralNetwork()
 network.train(data, all_y_trues)
 
-# Делаем пару предсказаний
+# предсказания
 emily = np.array([-7, -3]) # 128 фунтов (52.35 кг), 63 дюйма (160 см)
 frank = np.array([20, 2])  # 155 pounds (63.4 кг), 68 inches (173 см)
 print("Эмили: %.3f" % network.feedforward(emily)) # 0.951 - Ж
