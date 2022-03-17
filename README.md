@@ -7,7 +7,7 @@ Sorting Algorithms is the folder with diiferent kinds of sort algoriths on Pytho
 
 Tkinter is the folder contain the GUI, Simple Calculator with GUI and Simple Game using Tkinter, Supper game
 
-PyGame is the folder with simple animation of flame using PyGame
+PyGame is the folder with simple animation of flame using PyGame, contain Games 2048 and Snake
 
 Qt is the folder with Qt Simple window and Calculator(Using Qt5)
 
