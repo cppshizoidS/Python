@@ -1,6 +1,5 @@
 # Python
-This is my the first training in  
-[![](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](Python/)
+This is my the first training in  [![](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](Python/)
 
 Lessons is the folder with learning of bases of Python
 
