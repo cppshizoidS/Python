@@ -1,7 +1,7 @@
 # Python
 This is my the first training in  [![](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](Python/)
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?lines=Lessons+is+the+folder+with+learning+of+bases+of+Python)](https://git.io/typing-svg)
+Lessons is the folder with learning of bases of Python
 
 Sorting Algorithms is the folder with diiferent kinds of sort algoriths on Python
 
