@@ -10,11 +10,8 @@ class Game():
         self.screen_width = 720
         self.screen_height = 460
 
-<<<<<<< HEAD
     # необходимые цвета
-=======
         # необходимые цвета
->>>>>>> 2048
         self.red = pygame.Color(255, 0, 0)
         self.green = pygame.Color(0, 255, 0)
         self.black = pygame.Color(0, 0, 0)
@@ -28,11 +25,7 @@ class Game():
         # переменная для оторбражения результата
         # (сколько еды съели)
         self.score = 0
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 2048
     def init_and_check_for_errors(self):
         """Начальная функция для инициализации и
            проверки как запустится pygame"""
@@ -48,8 +41,7 @@ class Game():
         self.play_surface = pygame.display.set_mode((
             self.screen_width, self.screen_height))
         pygame.display.set_caption('Snake Game')
-<<<<<<< HEAD
-=======
+
 
     def event_loop(self, change_to):
         """Функция для отслеживания нажатий клавиш игроком"""
@@ -231,4 +223,3 @@ while True:
 
     game.show_score()
     game.refresh_screen()
->>>>>>> 2048

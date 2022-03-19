@@ -15,7 +15,7 @@ def get_index_from_number(num):
     return x,y
 
 def insert_2_or_4(mas, x, y):
-    if random.random()<=0.75
+    if random.random()<=0.75:
         mas[x][y] = 2
     else:
         mas[x][y] = 4

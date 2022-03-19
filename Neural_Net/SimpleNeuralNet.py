@@ -1,126 +1,137 @@
+from sklearn.datasets import load_digits
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 import numpy as np
+import numpy.random as r
+import matplotlib.pyplot as plt
 
 
-def sigmoid(x):
-    # Sigmoid activation Function: f(x) = 1 / (1 + e^(-x))
+def convert_y_to_vect(y):
+    y_vect = np.zeros((len(y), 10))
+    for i in range(len(y)):
+        y_vect[i, y[i]] = 1
+    return y_vect
+
+
+def f(x):
     return 1 / (1 + np.exp(-x))
 
 
-def deriv_sigmoid(x):
-    # Производная сигмоиды: f'(x) = f(x) * (1 - f(x))
-    fx = sigmoid(x)
-    return fx * (1 - fx)
+def f_deriv(x):
+    return f(x) * (1 - f(x))
 
 
-def mse_loss(y_true, y_pred):
-    # y_true и y_pred - araays numpy same lenght.
-    return ((y_true - y_pred) ** 2).mean()
+def setup_and_init_weights(nn_structure):
+    W = {}
+    b = {}
+    for l in range(1, len(nn_structure)):
+        W[l] = r.random_sample((nn_structure[l], nn_structure[l-1]))
+        b[l] = r.random_sample((nn_structure[l],))
+    return W, b
 
 
-class OurNeuralNetwork:
-    def __init__(self):
-        # Weights
-        self.w1 = np.random.normal()
-        self.w2 = np.random.normal()
-        self.w3 = np.random.normal()
-        self.w4 = np.random.normal()
-        self.w5 = np.random.normal()
-        self.w6 = np.random.normal()
-
-        # Thresholds
-        self.b1 = np.random.normal()
-        self.b2 = np.random.normal()
-        self.b3 = np.random.normal()
-
-    def feedforward(self, x):
-        # x is a numpy array with 2 elements.
-        h1 = sigmoid(self.w1 * x[0] + self.w2 * x[1] + self.b1)
-        h2 = sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
-        o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
-        return o1
-
-    def train(self, data, all_y_trues):
-        learn_rate = 0.1
-        epochs = 1000  # сколько раз пройти по всему набору данных
-
-        for epoch in range(epochs):
-            for x, y_true in zip(data, all_y_trues):
-                # --- Прямой проход
-                sum_h1 = self.w1 * x[0] + self.w2 * x[1] + self.b1
-                h1 = sigmoid(sum_h1)
-
-                sum_h2 = self.w3 * x[0] + self.w4 * x[1] + self.b2
-                h2 = sigmoid(sum_h2)
-
-                sum_o1 = self.w5 * h1 + self.w6 * h2 + self.b3
-                o1 = sigmoid(sum_o1)
-                y_pred = o1
-
-                # --- Считаем частные производные.
-                # --- Имена: d_L_d_w1 = "частная производная L по w1"
-                d_L_d_ypred = -2 * (y_true - y_pred)
-
-                # Нейрон o1
-                d_ypred_d_w5 = h1 * deriv_sigmoid(sum_o1)
-                d_ypred_d_w6 = h2 * deriv_sigmoid(sum_o1)
-                d_ypred_d_b3 = deriv_sigmoid(sum_o1)
-
-                d_ypred_d_h1 = self.w5 * deriv_sigmoid(sum_o1)
-                d_ypred_d_h2 = self.w6 * deriv_sigmoid(sum_o1)
-
-                # Нейрон h1
-                d_h1_d_w1 = x[0] * deriv_sigmoid(sum_h1)
-                d_h1_d_w2 = x[1] * deriv_sigmoid(sum_h1)
-                d_h1_d_b1 = deriv_sigmoid(sum_h1)
-
-                # Нейрон h2
-                d_h2_d_w3 = x[0] * deriv_sigmoid(sum_h2)
-                d_h2_d_w4 = x[1] * deriv_sigmoid(sum_h2)
-                d_h2_d_b2 = deriv_sigmoid(sum_h2)
-
-                #  Обновляем веса и пороги
-                # Нейрон h1
-                self.w1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w1
-                self.w2 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w2
-                self.b1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_b1
-
-                # Нейрон h2
-                self.w3 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_w3
-                self.w4 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_w4
-                self.b2 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_b2
-
-                # Нейрон o1
-                self.w5 -= learn_rate * d_L_d_ypred * d_ypred_d_w5
-                self.w6 -= learn_rate * d_L_d_ypred * d_ypred_d_w6
-                self.b3 -= learn_rate * d_L_d_ypred * d_ypred_d_b3
-
-            # Полные потери в конце каждой эпохи
-            if epoch % 10 == 0:
-                y_preds = np.apply_along_axis(self.feedforward, 1, data)
-                loss = mse_loss(all_y_trues, y_preds)
-                print("Epoch %d loss: %.3f" % (epoch, loss))
+def init_tri_values(nn_structure):
+    tri_W = {}
+    tri_b = {}
+    for l in range(1, len(nn_structure)):
+        tri_W[l] = np.zeros((nn_structure[l], nn_structure[l-1]))
+        tri_b[l] = np.zeros((nn_structure[l],))
+    return tri_W, tri_b
 
 
-# Data set
-data = np.array([
-    [-2, -1],  # Алиса
-    [25, 6],  # Боб
-    [17, 4],  # Чарли
-    [-15, -6],  # Диана
-])
-all_y_trues = np.array([
-    1,  # Алиса
-    0,  # Боб
-    0,  # Чарли
-    1,  # Диана
-])
+def feed_forward(x, W, b):
+    h = {1: x}
+    z = {}
+    for l in range(1, len(W) + 1):
+        # if it is the first layer, then the input into the weights is x, otherwise,
+        # it is the output from the last layer
+        if l == 1:
+            node_in = x
+        else:
+            node_in = h[l]
+        z[l+1] = W[l].dot(node_in) + b[l] # z^(l+1) = W^(l)*h^(l) + b^(l)
+        h[l+1] = f(z[l+1]) # h^(l) = f(z^(l))
+    return h, z
 
-# Training
-network = OurNeuralNetwork()
-network.train(data, all_y_trues)
 
-# предсказания
-emily = np.array([-7, -3])  # 128 фунтов (52.35 кг), 63 дюйма (160 см)
-frank = np.array([20, 2])  # 155 pounds (63.4 кг), 68 inches (173 см)
-print("Эмили: %.3f" % network.feedforward(emily))  # 0.951 - Ж
-print("Фрэнк: %.3f" % network.feedforward(frank))  # 0.039 - М
+def calculate_out_layer_delta(y, h_out, z_out):
+    # delta^(nl) = -(y_i - h_i^(nl)) * f'(z_i^(nl))
+    return -(y-h_out) * f_deriv(z_out)
+
+
+def calculate_hidden_delta(delta_plus_1, w_l, z_l):
+    # delta^(l) = (transpose(W^(l)) * delta^(l+1)) * f'(z^(l))
+    return np.dot(np.transpose(w_l), delta_plus_1) * f_deriv(z_l)
+
+
+def train_nn(nn_structure, X, y, iter_num=3000, alpha=0.25):
+    W, b = setup_and_init_weights(nn_structure)
+    cnt = 0
+    m = len(y)
+    avg_cost_func = []
+    print('Starting gradient descent for {} iterations'.format(iter_num))
+    while cnt < iter_num:
+        if cnt%1000 == 0:
+            print('Iteration {} of {}'.format(cnt, iter_num))
+        tri_W, tri_b = init_tri_values(nn_structure)
+        avg_cost = 0
+        for i in range(len(y)):
+            delta = {}
+            # perform the feed forward pass and return the stored h and z values, to be used in the
+            # gradient descent step
+            h, z = feed_forward(X[i, :], W, b)
+            # loop from nl-1 to 1 backpropagating the errors
+            for l in range(len(nn_structure), 0, -1):
+                if l == len(nn_structure):
+                    delta[l] = calculate_out_layer_delta(y[i,:], h[l], z[l])
+                    avg_cost += np.linalg.norm((y[i,:]-h[l]))
+                else:
+                    if l > 1:
+                        delta[l] = calculate_hidden_delta(delta[l+1], W[l], z[l])
+                    # triW^(l) = triW^(l) + delta^(l+1) * transpose(h^(l))
+                    tri_W[l] += np.dot(delta[l+1][:,np.newaxis], np.transpose(h[l][:,np.newaxis]))
+                    # trib^(l) = trib^(l) + delta^(l+1)
+                    tri_b[l] += delta[l+1]
+        # perform the gradient descent step for the weights in each layer
+        for l in range(len(nn_structure) - 1, 0, -1):
+            W[l] += -alpha * (1.0/m * tri_W[l])
+            b[l] += -alpha * (1.0/m * tri_b[l])
+        # complete the average cost calculation
+        avg_cost = 1.0/m * avg_cost
+        avg_cost_func.append(avg_cost)
+        cnt += 1
+    return W, b, avg_cost_func
+
+
+def predict_y(W, b, X, n_layers):
+    m = X.shape[0]
+    y = np.zeros((m,))
+    for i in range(m):
+        h, z = feed_forward(X[i, :], W, b)
+        y[i] = np.argmax(h[n_layers])
+    return y
+
+
+if __name__ == "__main__":
+    # load data and scale
+    digits = load_digits()
+    X_scale = StandardScaler()
+    X = X_scale.fit_transform(digits.data)
+    y = digits.target
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+    # convert digits to vectors
+    y_v_train = convert_y_to_vect(y_train)
+    y_v_test = convert_y_to_vect(y_test)
+    # setup the NN structure
+    nn_structure = [64, 30, 10]
+    # train the NN
+    W, b, avg_cost_func = train_nn(nn_structure, X_train, y_v_train)
+    # plot the avg_cost_func
+    plt.plot(avg_cost_func)
+    plt.ylabel('Average J')
+    plt.xlabel('Iteration number')
+    plt.show()
+    # get the prediction accuracy and print
+    y_pred = predict_y(W, b, X_test, 3)
+    print('Prediction accuracy is {}%'.format(accuracy_score(y_test, y_pred) * 100))
