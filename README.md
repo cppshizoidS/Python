@@ -15,3 +15,5 @@ Qt is the folder with Qt Simple window and Calculator(Using Qt5)
 Neural_Net is the folder with Simple Neural Net using NumPy
 
 Parser is the folder with Parser of info from stopgame
+
+Tg_Bot is the folfer with Telegram Bot
