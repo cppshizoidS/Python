@@ -17,3 +17,5 @@ Neural_Net is the folder with Simple Neural Net using NumPy
 Parser is the folder with Parser of info from stopgame
 
 Tg_Bot is the folfer with Telegram Bot
+
+Dino is the folder with simple AI Dino game 
