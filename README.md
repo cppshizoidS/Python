@@ -20,5 +20,5 @@ Tg_Bot is the folfer with Telegram Bot
 
 Dino is the folder with simple AI Dino game 
 
------------------------------------------------------------------------
-Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, SkitLearn
+----------------------------------------------------------------------------
+Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, SkitLearn, Neat
