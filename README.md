@@ -23,4 +23,4 @@ Discord_Bot is the folder with Discord Bot for my Server Discord
 Dino is the folder with simple AI Dino game 
 
 ----------------------------------------------------------------------------
-Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy SkitLearn, Neat
+Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy SkitLearn, Neat, Discord_API
