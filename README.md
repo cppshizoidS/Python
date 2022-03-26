@@ -18,7 +18,7 @@ Parser is the folder with Parser of info from stopgame
 
 Tg_Bot is the folfer with Telegram Bot
 
-Discord_Bot is the folder with Discord Bot for my Server Discord
+Discord_Bot is the folder with Discord Bot for my Server Discord using Discord_API
 
 Dino is the folder with simple AI Dino game 
 
