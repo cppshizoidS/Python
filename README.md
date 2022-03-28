@@ -23,6 +23,6 @@ Discord_Bot is the folder with Discord Bot for my Server Discord
 Dino is the folder with simple AI Dino game 
 
 ----------------------------------------------------------------------------
-![Python](https://img.shields.io/tokei/lines/github/cppshizoidS/Python?style=for-the-badge)
+[![][(https://img.shields.io/tokei/lines/github/cppshizoidS/Python?style=for-the-badge)]
 ----------------------------------------------------------------------------
 Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy SkitLearn, Neat, Discord_API
