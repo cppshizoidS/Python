@@ -25,4 +25,4 @@ Dino is the folder with simple AI Dino game
 ----------------------------------------------------------------------------
 Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, SkitLearn, Neat, Discord_API
 
-![GitHub](https://img.shields.io/tokei/lines/github/cppshizoidS/Python?style=for-the-badge)
+![](https://tokei.rs/b1/github/cppshizoidS/Python?category=code)
