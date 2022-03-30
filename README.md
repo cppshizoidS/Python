@@ -22,7 +22,9 @@ Discord_Bot is the folder with Discord Bot for my Server Discord
 
 Dino is the folder with simple AI Dino game 
 
+Tensorflow is the folder with first practisize in TF
+
 ----------------------------------------------------------------------------
-Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, SkitLearn, Neat, Discord_API
+Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Tensorflow, SkitLearn, Neat, Discord_API
 
 ![](https://tokei.rs/b1/github/cppshizoidS/Python?category=code)
