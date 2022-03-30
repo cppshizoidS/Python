@@ -27,4 +27,3 @@ Tensorflow is the folder with first practisize in TF
 ----------------------------------------------------------------------------
 Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Tensorflow, SkitLearn, Neat, Discord_API
 
-![](https://tokei.rs/b1/github/cppshizoidS/Python?category=code)
