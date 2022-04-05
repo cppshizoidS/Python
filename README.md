@@ -24,6 +24,8 @@ Dino is the folder with simple AI Dino game
 
 Tensorflow is the folder with first practisize in TF
 
+PyTorch is the folder with simple Neural net in PyTorch
+
 ----------------------------------------------------------------------------
 Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Tensorflow, SkitLearn, Neat, Discord_API
 
