@@ -27,6 +27,6 @@ Tensorflow is the folder with first practisize in TF
 PyTorch is the folder with simple Neural net in PyTorch
 
 ----------------------------------------------------------------------------
-Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Pandas. Tensorflow, SkitLearn, Neat, Discord_API
+Used technologies: Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Pandas, Tensorflow, SkitLearn, Neat, Discord_API
 
 ![](https://tokei.rs/b1/github/cppshizoidS/Python?category=code)
