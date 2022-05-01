@@ -31,4 +31,4 @@ PyTorch is the folder with simple Neural net in PyTorch
 ----------------------------------------------------------------------------
 Used technologies: CV2, Tkinter, PyQT5, PyGame, Requests, Telebot, NumPy, Pandas, Tensorflow, SkitLearn, Neat, Discord_API
 
-![](https://tokei.rs/b1/github/cppshizoidS/Python?category=code)
+![](https://img.shields.io/tokei/lines/github/cppshizoidS/Python)
