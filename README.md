@@ -12,7 +12,7 @@ PyGame is the folder with simple animation of flame using PyGame, contain Games 
 
 Qt is the folder with Qt Simple window and Calculator(Using Qt5)
 
-SUS is the folder with cv2 converter video to ASCII
+Vid_To_ASCII is the folder with cv2 converter video to ASCII
 
 Neural_Net is the folder with Simple Neural Net using NumPy and SkitLearn
 
