@@ -17,8 +17,7 @@ file_logger.setLevel(logging.INFO)  # everything into the logging file
 file_logger.setFormatter(formatter)
 
 console_logger = logging.StreamHandler()
-console_logger.setLevel(logging.WARNING)  # only important stuff to the terminal
-console_logger.setFormatter(formatter)
+console_logger.setLevel(logging.WARNING)  
 
 logger = logging.getLogger('my-bot')
 logger.setLevel(logging.INFO)
