@@ -46,5 +46,4 @@ def open_session() -> sqlalchemy.orm.Session:
     return sessionmaker(bind=engine)()
 
 
-# creating db which doesn't happen when it should?
 database = Base.metadata.create_all(bind=engine)
