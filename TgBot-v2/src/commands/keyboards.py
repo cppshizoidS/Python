@@ -1,6 +1,5 @@
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 
-# TODO: CONFIGURE YOUR INLINE  BELOW
 
 main_menu = InlineKeyboardMarkup([[InlineKeyboardButton('foo_cmd', callback_data='foo'),
                                    InlineKeyboardButton('bar_cmd', callback_data='bar'),
