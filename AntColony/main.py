@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 27 20:37:01 2017
-
-@author: thinkpad
-"""
 from grid import Grid
 from colony import Colony
 from application import Application
