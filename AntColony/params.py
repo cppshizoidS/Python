@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 13 20:20:14 2017
-
-@author: thinkpad
-
-App parameters
-"""
-
 global grid_size, block_size
 grid_size = (125,125)    
 block_size = 4 # display size : resolution*blockSize    
