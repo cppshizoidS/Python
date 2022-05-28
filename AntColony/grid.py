@@ -1,12 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 27 18:26:13 2017
-
-@author: thinkpad
-
-Defining the Grid class that contains all the cells
-"""
 import params
 from cell import Cell
 
