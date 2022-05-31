@@ -1,20 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 12 17:57:32 2017
-
-@author: thinkpad
-
-Defining the Cell Class
-
-The Cell class has the atrributes:
-    x, y : coordinates
-    ant_count : number of ants in the cell
-    phero_min, phero_max : bounding values of pheromone
-    evaporation : 1-evaporation rate
-    type :  ROAD, WALL, FOOD, NEST
-    color : chosen to reflect the type (see Colors dictionary)
-    intensity : parameter used for the transpency of the pheromone traces
-"""
 import pygame
 import params
 
@@ -46,7 +29,6 @@ class Cell(object):
         self.color = WHITE
         self.intensity = 0
 
-    ###########################################################################
     # refresh the cell stats :
     #            evaporate the pheromone
     #            the food cells are set to pharo_max"""
