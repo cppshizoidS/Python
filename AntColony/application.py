@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 12 17:57:32 2017
-
-@author: thinkpad
-
-Defining the Cell Class
-"""
 import sys
 import numpy as np
 import pygame
