@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 12 17:51:50 2017
-
-@author: Ayoub
-
-
-Defining the Ant class
-"""
-###############################################################################
 import random
 import bisect
 import numpy as np
