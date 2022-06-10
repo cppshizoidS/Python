@@ -10,7 +10,7 @@ Tkinter is the folder contain the GUI, Simple Calculator with GUI and Simple Gam
 
 PyGame is the folder with simple animation of flame using PyGame, contain Games 2048 and Snake
 
-Qt is the folder with Qt Simple window and Calculator(Using Qt5)
+Qt is the folder with Qt Simple window and Calculator(Using PyQt5)
 
 Vid_To_ASCII is the folder with cv2 converter video to ASCII
 
