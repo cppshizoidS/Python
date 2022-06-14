@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Все заметки</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/show_note.css' %}">
+</head>
+
+<body>
+<div class="main">
+    <div class="leftBlock">
+        <div class="id">
+            <p class="username">{{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+        <div class="logoutDiv">
+            <a href="{% url 'logout' %}" class="logout">Выйти</a>
+        </div>
+        <div>
+            <a href="{% url 'main_page' %}">
+                <button class="allNotes">Показать все заметки</button>
+            </a>
+        </div>
+        <div class="addNew">
+            <a href="{% url 'add-note_page' %}">
+                <button class="addNewNote">Создать новую заметку</button>
+            </a>
+        </div>
+    </div>
+    <div class="rightBlock">
+        <div class="divNote">
+            <div class="noteRow">
+                <div class="noteTitle">
+                    {{ note.name|capfirst }}
+                </div>
+                <div class="deleteNote1">
+                    <a href="{% url 'delete-note_page' note.pk %}">
+                        <button class="deleteNote">
+                            <img src="{% static '/evernote/img/delete.png' %}">
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="noteBody">
+                {{ note.text }}
+            </div>
+            {% if note.file %}
+                <a href="{% url 'download-file_page' note.pk %}" class="isFile">
+                    Скачать файл {{ filename }}
+                </a>
+            {% endif %}
+            <div class="noteDate">
+                {{ note.date }}
+            </div>
+            <div class="noteTags">
+                {% for tag in tags %}
+                    {% for el in note_has_tag %}
+                        {% if note.pk == el.note_id and tag.pk == el.tag_id %}
+                            <span class="noteTag">#{{ tag.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                <a href="{% url 'add-tag_page' note.pk %}">
+                    <button class=" addNewTag">+</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

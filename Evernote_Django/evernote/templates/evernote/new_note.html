@@ -1,0 +1,59 @@
+{% load static %}
+{% load rest_framework %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Создание новой заметки</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/new_note.css' %}">
+</head>
+
+<body>
+<div class="main">
+    <div class="leftBlock">
+        <div class="id">
+            <p class="username">{{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+    </div>
+    <div class="rightBlock">
+        <div class="divNote">
+            {#            <form action="" method="post" enctype="multipart/form-data">#}
+            {#                {% csrf_token %}#}
+            {#                <p>#}
+            {#                    <input name="name" type="text" class="noteTitle" placeholder="Название заметки">#}
+            {#                </p>#}
+            {#                <p>#}
+            {#                    <textarea name="text" class="noteBody" placeholder="Текст заметки" cols="100" rows="20"></textarea>#}
+            {#                </p>#}
+            {#                <p>#}
+            {#                    <input name="file" type="file" placeholder="Прикрепите файл" class="file">#}
+            {#                </p>#}
+            {#                <button class="save">Сохранить</button>#}
+            {#            </form>#}
+            <form action="{% url 'add-note_page' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>
+                    {{ note_form.name }}
+                </p>
+                <p>
+                    {{ note_form.text }}
+                </p>
+                <p>
+                    {{ note_form.file }}
+                </p>
+                <a href=#>
+                    <button type="submit" class="save">Сохранить</button>
+                </a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script type="module" src="{% static '/evernote/js/new_note.js' %}"></script>
+<script type="module" src="{% static '/evernote/js/cookie.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Добро пожаловать</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/style1.css' %}">
+</head>
+
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="{% static 'evernote/img/evernote_2018_logo.png' %}">
+    </div>
+    <div class="signIn">
+        <a href="{% url 'login_page' %}">войти</a>
+    </div>
+</div>
+
+<div class="main">
+    <div class="whyEvernote">
+        <div class="elem1">
+            <p>Возьмите рабочие задачи</p>
+            <p>под контроль и наведите</p>
+            <p>порядок в жизни</p>
+        </div>
+        <div class="elem2">
+            <p>Теперь когда заметки, задачи и расписание в одном месте,</p>
+            <p>вы ничего не забудете и справитесь с любым проектом.</p>
+        </div>
+    </div>
+    <div class="registration">
+        <a href="{% url 'registration_page' %}">
+            <button class="registrationButton">Зарегистрируйтесь бесплатно</button>
+        </a>
+    </div>
+    <div class="signIn1">
+        <a href="{% url 'login_page' %}">Уже есть аккаунт? Войдите</a>
+    </div>
+    <div class="benefits">
+        <div class="image">
+            <img src="{% static 'evernote/img/Screenshot_1.png' %}">
+        </div>
+        <div class="benefitsText">
+            <div class="benefits1">
+                <p>РАБОТАЙТЕ В ЛЮБОМ МЕСТЕ</p>
+                <p>Держите все важное под рукой</p>
+                <p>— ваши заметки автоматически</p>
+                <p>синхронизируются между всеми</p>
+                <p>вашими устройствами.</p>
+            </div>
+            <div class="benefits1">
+                <p>ПОМНИТЕ ОБО ВСЕМ</p>
+                <p>Пусть от заметок будет больше</p>
+                <p>толка — добавляйте текст,</p>
+                <p>изображения, аудиофайлы,</p>
+                <p>сканы, PDF и документы.</p>
+            </div>
+            <div class="benefits1">
+                <p>ПУСТЬ СПИСОК ДЕЛ</p>
+                <p>СТАНЕТ СПИСКОМ</p>
+                <p>СДЕЛАННОГО</p>
+                <p>Соберите вместе заметки,</p>
+                <p>задачи и свое расписание,</p>
+                <p>чтобы было проще справляться</p>
+                <p>с делами.</p>
+            </div>
+            <div class="benefits1">
+                <p>БЫСТРО НАХОДИТЕ НУЖНОЕ</p>
+                <p>Находите нужное в нужный</p>
+                <p>момент благодаря мощным и</p>
+                <p>гибким возможностям поиска.</p>
+            </div>
+        </div>
+    </div>
+    <div class="tariffPlan">
+        <div class="tarif">Тарифные планы</div>
+        <div class="plans">
+            <div class="plan1">
+                <p class="title">FREE</p>
+                <p class="price"><span>0 ₽</span></p>
+                <p class="info">Сохраняйте идеи и находите их быстро</p>
+                <ul>
+                    <li>Конспектируйте по ходу встречи</li>
+                    <li>Синхронизация между двумя устройствами</li>
+                    <li>Находите нужное быстро через поиск или с помощью меток</li>
+                    <li>Копирование веб-страниц</li>
+                    <li>Прикрепляйте PDF, чеки, файлы, фото, изображения и документы</li>
+                </ul>
+                <div class="button">
+                    <a href="{% url 'registration_page' %}">
+                    <button>Начать</button>
+                    </a>
+                </div>
+            </div>
+            <div class="plan2">
+                <p class="title">PERSONAL</p>
+                <p class="price"><span>219,00 ₽</span> В МЕСЯЦ</p>
+                <p class="info">Следите за домом и помните о важных семейных делах</p>
+                <ul>
+                    <li>ВСЕ ИЗ EVERNOTE FREE И:</li>
+                    <li>Синхронизируйте любое количество устройств</li>
+                    <li>Подключение основного аккаунта Google Календаря</li>
+                    <li>Сроки, напоминания и уведомления для задач</li>
+                    <li>Создать собственные шаблоны</li>
+                </ul>
+                <div class="button">
+                    <a href="{% url 'registration_page' %}">
+                    <button>Выбрать Personal</button>
+                    </a>
+                </div>
+            </div>
+            <div class="plan3">
+                <p class="title">PROFESSIONAL</p>
+                <p class="price"><span>299,00 ₽</span> В МЕСЯЦ</p>
+                <p class="info">На работе или дома — любой проект вам по плечу</p>
+                <ul>
+                    <li>ВСЕ ИЗ EVERNOTE PERSONAL И:</li>
+                    <li>Подключите рабочий и личный аккаунты Google Календаря</li>
+                    <li>Создавайте, настраивайте, распределяйте задачи и отслеживайте их выполнение</li>
+                    <li>Находите контент по геометкам</li>
+                </ul>
+                <div class="button">
+                    <a href="{% url 'registration_page' %}">
+                    <button>Выбрать Professional</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="logo">
+        <img src="{% static 'evernote/img/evernote_2018_logo.png' %}">
+    </div>
+    <div class="line">
+        <div class="element">ПРОДУКТ</div>
+        <div class="element">ВОЗМОЖНОСТИ</div>
+        <div class="element">СООБЩЕСТВО</div>
+        <div class="element">ПОДДЕРЖКА</div>
+        <div class="element">КОМПАНИЯ</div>
+    </div>
+</div>
+
+</body>
+
+</html>

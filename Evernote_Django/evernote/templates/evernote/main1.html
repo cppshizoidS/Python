@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Все заметки</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/style3.css' %}">
+    <script src="{% static 'evernote/js/main.js' %}"></script>
+</head>
+
+<body>
+<div class="main">
+    <div class="leftBlock">
+        <div class="id">
+            <p class="username">{{ user.first_name }} {{ user.last_name }}</p>
+            <img src="{% static '/evernote/img/Green_triangle.svg' %}" class="showMenu">
+            <div class="menu displayNone">
+                <p><a href="">Профиль</a></p>
+                <p><a href="">Помощь</a></p>
+                <p><a href="{% url 'logout' %}" class="logout">Выйти</a></p>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="filter1">
+                Отфильтровать:
+            </div>
+            <form action="{% url 'main_page' %}" method="post">
+                {% csrf_token %}
+                <p><label class="filterBy"
+                          for="{{ filter_form.date.id_for_label }}">{{ filter_form.date.label }}</label>
+                    {{ filter_form.date }}
+                </p>
+                <p><label class="filterBy"
+                          for="{{ filter_form.tag.id_for_label }}">{{ filter_form.tag.label }}</label>
+                    {{ filter_form.tag }}
+                </p>
+                <button type="submit" class="filterButton">Применить</button>
+            </form>
+            <a href="{% url 'main_page' %}">
+                <button class="allNotes">Показать все заметки</button>
+            </a>
+        </div>
+        <div class="addNew">
+            <a href="{% url 'add-note_page' %}">
+                <button class="addNewNote">Создать новую заметку</button>
+            </a>
+        </div>
+    </div>
+    <div class="rightBlock">
+        {% for note in notes %}
+            <div class="divNote" data-id="{{ note.pk }}">
+                <div class="noteRow">
+                    <div class="noteTitle">
+                        {{ note.name|capfirst }}
+                    </div>
+                    <div class="rightCorner">
+                            <span class="showNoteSpan">
+                            <a href=# data-id="{{ note.pk }}" class="showNote">
+                                Детальный просмотр
+                            </a>
+                            </span>
+                        <div class="deleteNote1">
+                            <a href=#>
+                                <button class="deleteNote" data-id="{{ note.pk }}">
+                                    <img src="{% static '/evernote/img/delete-button.svg' %}">
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="noteBody">
+                    {{ note.text|truncatewords:50 }}
+                </div>
+                {% if note.file %}
+                    <div class="isFile">
+                        К этой заметке прикреплен файл
+                    </div>
+                {% endif %}
+                <div class="noteDate">
+                    {{ note.date }}
+                </div>
+                <div class="noteTags">
+                    {% for tag in tags %}
+                        {% for el in note_has_tag %}
+                            {% if note.pk == el.note_id and tag.pk == el.tag_id %}
+                                <span class="noteTag">#{{ tag.name }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    <a href="add-tag/{{ note.pk }}">
+                        <button class=" addNewTag">+</button>
+                    </a>
+                </div>
+
+                <div class="detailedView" data-id="{{ note.pk }}">
+                    <div class="detailedDivNote">
+                        <div class="noteRow">
+                            <div class="noteTitle">
+                                {{ note.name|capfirst }}
+                            </div>
+                            <div class="rightCorner">
+                                <div class="deleteNote1">
+                                    <a href="{% url 'delete-note_page' note.pk %}">
+                                        <button class="deleteNote" data-id="{{ note.pk }}">
+                                            <img src="{% static '/evernote/img/delete-button.svg' %}">
+                                        </button>
+                                    </a>
+                                </div>
+                                <img data-id="{{ note.pk }}" class="close"
+                                     src="{% static '/evernote/img/x-symbol-svgrepo-com.svg' %}">
+                            </div>
+                        </div>
+                        <div class="noteBody">
+                            {{ note.text }}
+                        </div>
+                        {% if note.file %}
+                            <a href="{% url 'download-file_page' note.pk %}" class="isFile">
+                                Скачать файл {{ note.filename }}
+                            </a>
+                        {% endif %}
+                        <div class="noteDate">
+                            {{ note.date }}
+                        </div>
+                        <div class="noteTags">
+                            {% for tag in tags %}
+                                {% for el in note_has_tag %}
+                                    {% if note.pk == el.note_id and tag.pk == el.tag_id %}
+                                        <span class="noteTag">#{{ tag.name }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                            <a href="{% url 'add-tag_page' note.pk %}">
+                                <button class=" addNewTag">+</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

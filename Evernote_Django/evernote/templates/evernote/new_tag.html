@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Добавление тега</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/new_tag.css' %}">
+</head>
+
+<body>
+<div class="main">
+    <div class="leftBlock">
+        <div class="id">
+            <p class="username">{{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+    </div>
+    <div class="rightBlock">
+        <div class="divNote">
+            <p>
+            <form action="{% url 'add-tag_page' idnote %}" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="{{ add_note.name.id_for_label }}"></label>
+                    {{ add_tag.name }}
+                </p>
+                <button type="submit" class="save">Сохранить</button>
+            </form>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script type="module" src="{% static '/evernote/js/cookie.js' %}"></script>
+<script type="module" src="{% static '/evernote/js/new_tag.js' %}"></script>
+
+</body>
+
+</html>

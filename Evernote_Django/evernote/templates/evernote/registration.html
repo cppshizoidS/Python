@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/style.css' %}">
+</head>
+
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="{% static 'evernote/img/evernote_2018_logo.png' %}">
+    </div>
+    <div class="signIn">
+        <a href="{% url 'login_page' %}">войти</a>
+    </div>
+</div>
+<div class="main">
+    <div class="registration">
+        <p class="regTitle">
+            Регистрация
+        </p>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {% for f in form %}
+                    <p>{{ f }}</p>
+                    <p>{{ f.errors }}</p>
+                {% endfor %}
+                <button type="submit" class="buttonContinue">Продолжить</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="line">
+        <div class="element">ПРОДУКТ</div>
+        <div class="element">ВОЗМОЖНОСТИ</div>
+        <div class="element">СООБЩЕСТВО</div>
+        <div class="element">ПОДДЕРЖКА</div>
+        <div class="element">КОМПАНИЯ</div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+{% load rest_framework %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Все заметки</title>
+    <link rel="stylesheet" href="{% static 'evernote/css/style3.css' %}">
+</head>
+
+<body>
+<div class="main">
+    <div class="leftBlock">
+        <div class="id">
+            <p class="username">{{ user.first_name }} {{ user.last_name }}</p>
+            <img src="{% static '/evernote/img/Green_triangle.svg' %}" class="showMenu">
+            <div class="menu displayNone">
+                <p><a href="">Профиль</a></p>
+                <p><a href="">Помощь</a></p>
+                <p><a href="{% url 'logout' %}" class="logout">Выйти</a></p>
+            </div>
+        </div>
+        <div class="filter">
+
+            <div class="filter1">
+                Отфильтровать:
+            </div>
+            <p>
+                <label class="filterForms">
+                    По дате:
+                </label>
+                <input type="date" class="filterForms filterDate">
+            </p>
+            <p>
+                <label class="filterForms">
+                    По тегу:
+                </label>
+                <input type="text" class="filterForms filterTag">
+            </p>
+            <p>
+                <button class="filterButton">Применить</button>
+            </p>
+            <button class="allNotes">Показать все заметки</button>
+
+        </div>
+        <div class="addNew">
+            <a href="{% url 'add-note_page' %}">
+                <button class="addNewNote">Создать новую заметку</button>
+            </a>
+        </div>
+    </div>
+    <div class="rightBlock">
+
+    </div>
+
+</div>
+
+<script type="module" src="{% static 'evernote/js/main.js' %}"></script>
+<script type="module" src="{% static '/evernote/js/cookie.js' %}"></script>
+
+</body>
+</html>
