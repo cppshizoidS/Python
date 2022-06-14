@@ -1,0 +1,1 @@
+web gunicorn evernote_django.wsgi:application --log-file -
